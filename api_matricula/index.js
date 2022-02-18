@@ -28,10 +28,10 @@ app.get('/alumno',function(req,res){
 })
 
 app.post('/alumno',function(req,res){
-    const {name,salary} = req.body;
+    const {alumno_nombre,alumno_email} = req.body;
     const query = 'insert into tbl_alumno(alumno_nombre,alumno_email) values(?,?)';
     
-    mysqlConnection.query(query,[name,salary],(err,rows,fields)=>{
+    mysqlConnection.query(query,[alumno_nombre,alumno_email],(err,rows,fields)=>{
         if(!err){
             res.json({
                 'status':true,
